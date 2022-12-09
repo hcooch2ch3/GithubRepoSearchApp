@@ -13,6 +13,8 @@
 		36748AB02942D06E0049AD58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36748AAE2942D06E0049AD58 /* Main.storyboard */; };
 		36748AB22942D06F0049AD58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36748AB12942D06F0049AD58 /* Assets.xcassets */; };
 		36748AB52942D06F0049AD58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36748AB32942D06F0049AD58 /* LaunchScreen.storyboard */; };
+		36748ABE2942D8E10049AD58 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 36748ABD2942D8E10049AD58 /* Alamofire */; };
+		36748AC12942D9AE0049AD58 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 36748AC02942D9AE0049AD58 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36748AC12942D9AE0049AD58 /* RxSwift in Frameworks */,
+				36748ABE2942D8E10049AD58 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +87,10 @@
 			dependencies = (
 			);
 			name = GithubRepoSearchApp;
+			packageProductDependencies = (
+				36748ABD2942D8E10049AD58 /* Alamofire */,
+				36748AC02942D9AE0049AD58 /* RxSwift */,
+			);
 			productName = GithubRepoSearchApp;
 			productReference = 36748AA52942D06E0049AD58 /* GithubRepoSearchApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,10 @@
 				Base,
 			);
 			mainGroup = 36748A9C2942D06E0049AD58;
+			packageReferences = (
+				36748ABC2942D8E10049AD58 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				36748ABF2942D9AE0049AD58 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 36748AA62942D06E0049AD58 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -358,6 +370,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		36748ABC2942D8E10049AD58 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		36748ABF2942D9AE0049AD58 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		36748ABD2942D8E10049AD58 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36748ABC2942D8E10049AD58 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		36748AC02942D9AE0049AD58 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36748ABF2942D9AE0049AD58 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 36748A9D2942D06E0049AD58 /* Project object */;
 }
