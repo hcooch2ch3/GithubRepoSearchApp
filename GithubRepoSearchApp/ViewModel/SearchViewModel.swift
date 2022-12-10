@@ -6,8 +6,22 @@
 //
 
 import Foundation
+import RxSwift
 
 /// 검색 키워드를 사용자에게 받아서 서버에 검색을 요청하고, 받은 결과를 갱신하는 역할
 class SearchViewModel {
+    private let searchService = SearchService()
+    private let disposeBag = DisposeBag()
+    var searchResult = PublishSubject<SearchResult>()
     
+    func searchRepository(_ keyword: String) {
+        searchService.searchRepository(keyword)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { result in
+                self.searchResult.onNext(result)
+            }, onError: { error in
+                print("error", error)
+            })
+            .disposed(by: disposeBag)
+    }
 }
