@@ -19,6 +19,7 @@
 		36748AB52942D06F0049AD58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36748AB32942D06F0049AD58 /* LaunchScreen.storyboard */; };
 		36748ABE2942D8E10049AD58 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 36748ABD2942D8E10049AD58 /* Alamofire */; };
 		36F115F32946C5010013CFED /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F115F22946C5010013CFED /* RepositoryCell.swift */; };
+		36F115F6294751AC0013CFED /* Int+Comma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F115F5294751AC0013CFED /* Int+Comma.swift */; };
 		36F1273829451A74005A9A2F /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366CBE672944FEB900CF014D /* SearchService.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		36748AB42942D06F0049AD58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36748AB62942D06F0049AD58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36F115F22946C5010013CFED /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		36F115F5294751AC0013CFED /* Int+Comma.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Comma.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		36748AA72942D06E0049AD58 /* GithubRepoSearchApp */ = {
 			isa = PBXGroup;
 			children = (
+				36F115F42947519A0013CFED /* Extension */,
 				366CBE662944FEA600CF014D /* Service */,
 				366CBE6329448FAB00CF014D /* ViewModel */,
 				366CBE6229448FA400CF014D /* Model */,
@@ -115,6 +118,14 @@
 				36748AB62942D06F0049AD58 /* Info.plist */,
 			);
 			path = GithubRepoSearchApp;
+			sourceTree = "<group>";
+		};
+		36F115F42947519A0013CFED /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				36F115F5294751AC0013CFED /* Int+Comma.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36748AAD2942D06E0049AD58 /* SearchViewController.swift in Sources */,
+				36F115F6294751AC0013CFED /* Int+Comma.swift in Sources */,
 				36F115F32946C5010013CFED /* RepositoryCell.swift in Sources */,
 				36748AA92942D06E0049AD58 /* AppDelegate.swift in Sources */,
 				366CBE6529448FC500CF014D /* SearchResult.swift in Sources */,

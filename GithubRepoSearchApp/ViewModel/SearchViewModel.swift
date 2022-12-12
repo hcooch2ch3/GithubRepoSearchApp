@@ -14,11 +14,15 @@ class SearchViewModel {
     private let disposeBag = DisposeBag()
     var searchResult = PublishSubject<SearchResult>()
     
-    func searchRepository(_ keyword: String) {
+    func searchRepository(_ keyword: String, _ completionHandler: @escaping () -> Void) {
+        let emptySearchResult = SearchResult(totalCount: nil, incompleteResults: nil, items: [])
+        self.searchResult.onNext(emptySearchResult)
+        
         searchService.searchRepository(keyword)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { result in
                 self.searchResult.onNext(result)
+                completionHandler()
             }, onError: { error in
                 print("error", error)
             })
