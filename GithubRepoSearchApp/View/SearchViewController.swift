@@ -10,40 +10,60 @@ import RxSwift
 import RxCocoa
 
 class SearchViewController: UIViewController {
-    var viewModel = SearchViewModel()
+    private var viewModel = SearchViewModel()
     private let disposeBag = DisposeBag()
-    let spinner = UIActivityIndicatorView(style: .large)
+    private let spinner = UIActivityIndicatorView(style: .large)
 
     @IBOutlet weak var repositoryTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpNavigationBar()
+        setUpTableView()
+        setUpPagination()
+    }
+    
+    func setUpNavigationBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Enter Keyword"
         navigationItem.searchController = searchController
         navigationItem.title = "Search Github Repo"
         navigationItem.hidesSearchBarWhenScrolling = false
-        
+    }
+    
+    func setUpTableView() {
         repositoryTableView.backgroundView = spinner
         spinner.hidesWhenStopped = true
         
-        viewModel.searchResult.compactMap {
-            $0.items
-        }.bind(to: repositoryTableView.rx.items(cellIdentifier: "RepositoryCell", cellType: RepositoryCell.self)) { (index: Int, element: Item, cell: RepositoryCell) in
-            cell.titleLabel?.text = element.name
-            cell.descriptionLabel?.text = element.itemDescription
-            if let stargazersCount = element.stargazersCount {
-                cell.starCountLabel?.text = stargazersCount.commaRepresentation
+        viewModel.items
+            .bind(to: repositoryTableView.rx.items(cellIdentifier: "RepositoryCell", cellType: RepositoryCell.self)) { (index: Int, element: Item, cell: RepositoryCell) in
+                cell.titleLabel?.text = element.name
+                cell.descriptionLabel?.text = element.itemDescription
+                if let stargazersCount = element.stargazersCount {
+                    cell.starCountLabel?.text = stargazersCount.commaRepresentation
+                }
+                if let language = element.language {
+                    cell.languageLabel?.text = language
+                    cell.languageIconImageView.tintColor = RepositoryCell.getLanguageColor(language)
+                } else {
+                    cell.languageIconImageView.isHidden = true
+                }
             }
-            if let language = element.language {
-                cell.languageLabel?.text = language
-                cell.languageIconImageView.tintColor = RepositoryCell.getLanguageColor(language)
-            } else {
-                cell.languageIconImageView.isHidden = true
+            .disposed(by: disposeBag)
+    }
+    
+    func setUpPagination() {
+        self.repositoryTableView.rx.prefetchRows
+            .compactMap(\.last?.row)
+            .withUnretained(self)
+            .bind { searchViewController, row in
+              guard let repositoryTableView = searchViewController.repositoryTableView else { return }
+              guard row == repositoryTableView.numberOfRows(inSection: 0) - 1 else { return }
+              self.viewModel.fetchMoreRepositories()
             }
-        }.disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
     }
 }
 
