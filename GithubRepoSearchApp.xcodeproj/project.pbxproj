@@ -18,6 +18,7 @@
 		36748AB22942D06F0049AD58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36748AB12942D06F0049AD58 /* Assets.xcassets */; };
 		36748AB52942D06F0049AD58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36748AB32942D06F0049AD58 /* LaunchScreen.storyboard */; };
 		36748ABE2942D8E10049AD58 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 36748ABD2942D8E10049AD58 /* Alamofire */; };
+		36F115F32946C5010013CFED /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F115F22946C5010013CFED /* RepositoryCell.swift */; };
 		36F1273829451A74005A9A2F /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366CBE672944FEB900CF014D /* SearchService.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		36748AB12942D06F0049AD58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36748AB42942D06F0049AD58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36748AB62942D06F0049AD58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36F115F22946C5010013CFED /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				36748AAC2942D06E0049AD58 /* SearchViewController.swift */,
+				36F115F22946C5010013CFED /* RepositoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36748AAD2942D06E0049AD58 /* SearchViewController.swift in Sources */,
+				36F115F32946C5010013CFED /* RepositoryCell.swift in Sources */,
 				36748AA92942D06E0049AD58 /* AppDelegate.swift in Sources */,
 				366CBE6529448FC500CF014D /* SearchResult.swift in Sources */,
 				36F1273829451A74005A9A2F /* SearchService.swift in Sources */,
