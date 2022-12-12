@@ -10,10 +10,10 @@ import Alamofire
 import RxSwift
 
 class SearchService {
-    func searchRepository(_ keyword: String) -> Observable<SearchResult> {
+    func searchRepository(_ keyword: String, _ page: Int) -> Observable<SearchResult> {
         return Observable<SearchResult>.create { observer in
             let url = "https://api.github.com/search/repositories"
-            let parameters = ["q": keyword]
+            let parameters = ["q": keyword, "page": page]
             let request = AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil)
                 .validate(statusCode: 200..<300)
                 .validate(contentType: ["application/json"])
